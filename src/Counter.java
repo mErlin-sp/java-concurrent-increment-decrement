@@ -11,11 +11,13 @@ public class Counter {
         }
     }
 
-    public static synchronized void decrement() {
-        counter--;
-        updateCounter++;
-        if (updateCounter % 500 == 0) {
-            System.out.print(counter + " ");
+    public static void decrement() {
+        synchronized (Counter.class){
+            counter--;
+            updateCounter++;
+            if (updateCounter % 500 == 0) {
+                System.out.print(counter + " ");
+            }
         }
     }
 }
